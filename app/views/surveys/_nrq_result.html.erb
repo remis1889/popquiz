@@ -1,0 +1,19 @@
+<li>
+  <%= nrq.question_text %>
+  <table class="table table-striped table-no-border">
+    <thead>
+      <tr>
+        <th>Response</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% (nrq.min..nrq.max).each do |n| %>
+        <tr>
+          <td><%= n %></td>
+          <td><%= @results[[nrq.id, n, 'Nrq']].to_i %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</li>

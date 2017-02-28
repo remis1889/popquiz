@@ -1,3 +1,45 @@
 // Place all the styles related to the mcqs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.questions {
+  ol {
+    font-weight: bold;
+    font-size:14px;
+    li {
+      margin:0 0 20px 0;
+    }
+    ol {
+      font-weight: normal;
+      margin-bottom: 5px;
+      li {
+        margin: 0;
+      }
+    }
+  }
+  .survey-content {
+    padding: 5px;
+  }
+}
+
+.form-container {
+  padding: 20px 0 20px 0;
+  select {
+    width: auto;
+  }
+}
+
+.option label {
+  font-weight: normal;
+  font-size: inherit;
+  display: inline;
+}
+
+.form-row {
+  padding-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+}

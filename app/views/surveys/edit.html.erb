@@ -1,0 +1,29 @@
+<%= render 'shared/nav' %>
+
+<%= render 'shared/header', class_name1: 'inactive', class_name2: 'active' %>
+
+<p>Next, fill in the questions.</p>
+
+<%= render 'shared/survey_content', survey: @survey, class_name: ""%>
+
+<hr>
+
+<div class="sub-heading">Add a Question:</div>
+
+<%= form_for @survey do |f| %>
+
+  <div class="form-row">
+
+    <div class="response-count">Choose which type of question to add.</div>
+
+    <%= f.select(:question_type, options_for_select(Survey::QUESTION_TYPES.map.with_index{ |q, i| [q, i] })) %>
+
+  </div>
+
+  <%= f.submit("Add a New Question", class: 'btn btn-primary btn-lg btn-block') %>
+
+<% end %>
+
+<hr>
+
+<%= render 'shared/existing_questions', class_name: ""  %>

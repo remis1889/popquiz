@@ -1,0 +1,18 @@
+<li>
+  <%= survey.title %>
+  <div class="survey-content">
+    <div class="description">
+      <%= survey.description %>
+    </div>
+
+    <% if survey.questions? %>
+      <div class="response-count">
+        <%= pluralize(survey.responses.size, 'Response') unless survey.responses.blank? %>
+      </div>
+      <%= link_to "Take Survey", new_survey_response_path(survey.id), {class: "btn btn-default btn-sm active" }  %>
+      <%= link_to "View Results", survey_path(survey.id), {class: "btn btn-default btn-sm active" } unless survey.responses.blank? %>
+    <% else %>
+      <%= link_to "Add Questions", edit_survey_path(survey.id), {class: "btn btn-default btn-sm active" }  %>
+    <% end %>
+  </div>
+</li>

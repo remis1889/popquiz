@@ -1,0 +1,13 @@
+<%= render 'shared/nav' %>
+<%= render 'shared/response_header', survey: @survey, title_text: "Results" %>
+
+<div class="response-count">
+  <%= pluralize(@survey.responses.size, 'Response') %>
+</div>
+
+<div class="response-form">
+  <ol>
+    <%= render partial: 'mcq_result', collection: @mcqs, as: :mcq %>
+    <%= render partial: 'nrq_result', collection: @nrqs, as: :nrq %>
+  </ol>
+</div>

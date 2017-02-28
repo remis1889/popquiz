@@ -1,0 +1,10 @@
+<% if @questions[[form.object.question_id, 'Mcq']][:multiselect] %>
+  <%= form.collection_check_boxes(:answer_entry, @questions[[form.object.question_id, 'Mcq']][:options], :id, :option_text, checked: form.object.checked) do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+  <% end %>
+<% else %>
+  <%= form.collection_radio_buttons(:answer_entry, @questions[[form.object.question_id, 'Mcq']][:options], :id, :option_text) do |b| %>
+    <%= b.label { b.radio_button + b.text } %>
+  <% end %>
+<% end %>
+

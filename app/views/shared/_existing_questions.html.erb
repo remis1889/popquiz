@@ -1,0 +1,23 @@
+<div class="questions <%= class_name %>">
+
+  <div class="sub-heading">Existing Questions:</div>
+
+  <% unless @survey.questions? %>
+
+    <div class="description">There are no questions yet!</div>
+
+  <% else %>
+
+    <ol>
+      <%= render partial: 'shared/mcq', locals: {survey: @survey}, collection: @survey.mcqs, as: :mcq %>
+
+      <%= render partial: 'shared/nrq', locals: {survey: @survey}, collection: @survey.nrqs, as: :nrq %>
+    </ol>
+
+    <hr>
+
+    <%= link_to "Finish Building Survey and Return", root_path, {:class=>"btn btn-primary btn-lg btn-block" }  %>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<header>
+  <h1>Surveyor: <br>  Tell Me #allthethings!</h1>
+
+  <p>Click on a survey below to take it or create one
+   of your own!</p>
+
+  <%= link_to "Create a New Survey", new_survey_path, {class: "btn btn-primary btn-lg btn-block" }  %>
+</header>
+
+<main>
+  <div class="sub-heading underline padding">Take a Survey</div>
+    <ol>
+      <%= render(@surveys) || "There are no surveys available."  %>
+    </ol>
+</main>

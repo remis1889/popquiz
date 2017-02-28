@@ -1,0 +1,47 @@
+<div class="sub-menu">
+  <span class="active">1. Select Options</span> | <span class="inactive">2. Add Question Text</span>
+</div>
+
+<div class="form-container">
+
+  <%= form_for [survey, mcq] do |f| %>
+
+    <div class="form-row">
+      <div class="response-count">How many options should the question have?</div>
+      <%= f.select(:option_count, (2..5)) %>
+    </div>
+
+    <div class="form-row">
+      <div class="response-count">How many options can be selected?</div>
+
+      <div class="option">
+        <%= f.radio_button :multiselect, 'false', checked: true %>
+        <%= f.label :multiselect, 'Just One', value: 'false' %>
+      </div>
+
+      <div class="option">
+        <%= f.radio_button :multiselect, 'true' %>
+        <%= f.label :multiselect, 'Multiple', value: 'true' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="response-count">Is the question required?</div>
+
+      <div class="option">
+        <%= f.radio_button :required, 'true', checked: true %>
+        <%= f.label :required, 'Yes', value: 'true' %>
+      </div>
+
+      <div class="option">
+        <%= f.radio_button :required, 'false' %>
+        <%= f.label :required, 'No', value: 'false' %>
+      </div>
+
+    </div>
+
+    <%= f.submit "Continue to the Next Step", class: 'btn btn-primary btn-lg btn-block' %>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="sub-menu">
+
+  <span class="inactive">1. Select Options</span> | <span class="active">2. Add Question Text</span>
+
+</div>
+
+<div class="response-count padding">Next, add the text for each of your options.</div>
+
+<%= form_for [survey, mcq] do |f| %>
+
+  <%= f.label :question_text, 'What is your question?' %>
+  <%= f.text_field :question_text, placeholder: 'eg. "Who does Number Two work for?"'%>
+
+  <%= f.fields_for :options do |option_fields| %>
+
+    <%= option_fields.label :option_text, "Option #{option_fields.options[:child_index] + 1}:" %>
+
+    <%= option_fields.text_field :option_text, placeholder: 'eg. "Dr. Evil"'%>
+
+  <% end %>
+
+  <%= f.submit "Add Question", class: 'btn btn-primary btn-lg btn-block' %>
+
+  <%= f.submit "Back to previous step", name: 'previous_button', class: 'btn-link underline' %>
+
+<% end %>

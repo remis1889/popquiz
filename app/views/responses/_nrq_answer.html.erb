@@ -1,0 +1,5 @@
+<span class="float-left"><%= @questions[[form.object.question_id, 'Nrq']][:min] %></span>
+<span class="float-left">
+  <%= form.range_field(:answer_entry, in: @questions[[form.object.question_id, 'Nrq']][:min]..@questions[[form.object.question_id, 'Nrq']][:max]) %>
+</span>
+<span class="float-left"><%= @questions[[form.object.question_id, 'Nrq']][:max] %></span>

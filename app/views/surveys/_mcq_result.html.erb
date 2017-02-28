@@ -1,0 +1,19 @@
+<li>
+  <%= mcq.question_text %>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Response</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% mcq.options.each do |op| %>
+        <tr>
+          <td><%= op.option_text %></td>
+          <td><%= @results[[mcq.id, op.id, 'Mcq']].to_i %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</li>

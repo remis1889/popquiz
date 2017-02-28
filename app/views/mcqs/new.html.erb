@@ -1,0 +1,15 @@
+<%= render 'shared/nav' %>
+
+<%= render 'shared/header', class_name1: 'inactive', class_name2: 'active' %>
+
+<%= render 'shared/survey_content', survey: @survey, class_name: "inactive" %>
+
+<hr>
+
+<div class="sub-heading">Add a Multiple Choice Question:</div>
+
+<%= render "mcq_#{@mcq.current_step}", survey: @survey, mcq: @mcq %>
+
+<hr>
+
+<%= render 'shared/existing_questions', class_name: "inactive"  %>

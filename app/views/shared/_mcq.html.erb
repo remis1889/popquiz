@@ -1,0 +1,30 @@
+<li>
+  <%= mcq.question_text %>
+
+  <div class="survey-content">
+
+    <% if mcq.required %>
+      <span class="response-count">Required.</span>
+    <% else %>
+      <span class="response-count">Not Required.</span>
+    <% end %>
+
+    <% if mcq.multiselect %>
+      <span class="response-count">Select Multiple.</span>
+    <% else %>
+      <span class="response-count">Select One.</span>
+    <% end %>
+
+  </div>
+
+  <ol type="a">
+
+  <% mcq.options.each do |o| %>
+    <li><%= o.option_text %></li>
+  <% end %>
+
+  </ol>
+
+  <%= link_to "Remove Question", [survey, mcq], method: :delete, data: {confirm: 'Delete this question?'}, class: :underline %>
+
+</li>

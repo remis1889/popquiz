@@ -1,0 +1,21 @@
+<li>
+  <%= nrq.question_text %>
+
+  <div class="survey-content">
+
+    <% if nrq.required %>
+      <span class="response-count">Required.</span>
+    <% else %>
+      <span class="response-count">Not Required.</span>
+    <% end %>
+
+    <br>
+
+    <span class="response-count">Minimum : <%= nrq.min %>,</span>
+    <span class="response-count">Maximum : <%= nrq.max %></span>
+
+  </div>
+
+  <%= link_to "Remove Question", [survey, nrq], method: :delete, data: {confirm: 'Delete this question?'}, class: :underline %>
+
+</li>

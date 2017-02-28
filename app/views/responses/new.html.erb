@@ -1,0 +1,37 @@
+<%= render 'shared/nav' %>
+<%= render 'shared/response_header', survey: @survey, title_text: "Taker" %>
+
+<div class="response-count inactive">Questions marked with an asterisk (*) are required</div>
+
+<div class="response-form">
+  <%= form_for [@survey, @response] do |f| %>
+
+    <%= f.fields_for :answers, f.object.sorted_answers do |a| %>
+
+      <div class="response-field">
+
+        <div class="question-text">
+          <span class="required"><%= '* ' if @questions[[a.object.question_id, a.object.question_type]][:required] %></span>
+          <%= a.options[:child_index] + 1 %>.
+
+          <%= @questions[[a.object.question_id, a.object.question_type]][:question_text] %>
+        </div>
+        <% unless a.object.errors[:answer_entry].blank? %>
+          <div class="error-msg">
+            <%= a.object.errors[:answer_entry].first %>
+          </div>
+          <div class="answer-box error-box">
+        <% else %>
+          <div class="answer-box">
+        <% end %>
+          <%= a.hidden_field :question_type %>
+          <%= a.hidden_field :question_id %>
+          <%= render "#{a.object.question_type.downcase}_answer", form: a
+          %>
+        </div>
+      </div>
+
+    <% end %>
+  <%= submit_tag "Create Your Survey", class: 'btn btn-primary btn-lg btn-block' %>
+  <% end %>
+</div>

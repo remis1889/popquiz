@@ -1,0 +1,21 @@
+<%= render 'shared/nav' %>
+
+<%= render 'shared/header', class_name1: 'active', class_name2: 'inactive' %>
+
+<p>First, choose a title and description for your survey.</p>
+
+<main>
+
+  <%= form_for @survey do |f| %>
+
+    <%= f.label :title, 'Survey Title' %>
+    <%= f.text_field :title, placeholder: 'eg. "The personality test"'%>
+
+    <%= f.label :description, 'Survey Description' %>
+    <%= f.text_area :description, size: "30x4", placeholder: 'eg. "Discovering what is unique and special about all you crazy people"' %>
+
+    <%= f.submit "Create Survey & Begin Adding Questions", class: 'btn btn-primary btn-lg btn-block' %>
+
+  <% end %>
+
+</main>
