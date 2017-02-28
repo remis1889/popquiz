@@ -1,0 +1,2 @@
+class NrqsController < ApplicationController
+end
