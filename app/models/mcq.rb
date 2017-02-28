@@ -1,0 +1,2 @@
+class Mcq < ApplicationRecord
+end

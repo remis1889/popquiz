@@ -1,0 +1,2 @@
+class Nrq < ApplicationRecord
+end
