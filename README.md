@@ -1,24 +1,9 @@
-# README
+## Surveyor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web application to create surveys developed using Ruby on Rails. Features are divided into 3 sections:
 
-Things you may want to cover:
+* Survey Builder
+* Survey Taker
+* Result Viewer
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A survey can have two types of questions : multiple choice questions and number range questions. A question can be required or optional. Multiple choice questions can allow the user to either select only one option (radio buttons) or many options (checkboxes).
